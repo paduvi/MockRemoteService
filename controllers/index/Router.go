@@ -5,7 +5,7 @@ import (
 	. "github.com/paduvi/MockRemoteService/models"
 )
 
-func EquipIndexRouter(app router.Party) {
+func EquipRouter(app router.Party) {
 	party := app.Party("/")
 
 	for _, route := range routes {
@@ -15,13 +15,11 @@ func EquipIndexRouter(app router.Party) {
 
 var routes = Routes{
 	Route{
-		"Index",
 		"GET",
 		"/",
 		Index,
 	},
 	Route{
-		"SubIndex",
 		"GET",
 		"/{name}",
 		SubIndex,
