@@ -4,14 +4,9 @@ import (
 	"github.com/kataras/iris"
 	"github.com/paduvi/MockRemoteService/middlewares"
 	"github.com/paduvi/MockRemoteService/controllers"
-	"github.com/joho/godotenv"
-	_ "github.com/joho/godotenv/autoload"
+	_ "github.com/jpfuentes2/go-env/autoload"
 	"os"
 )
-
-func init()  {
-	_ = godotenv.Load("deploy.env")
-}
 
 func main() {
 	app := iris.New()

@@ -14,4 +14,4 @@
 .glide/
 
 .idea/
-deploy.env
+.env.local
