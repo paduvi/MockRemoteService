@@ -14,4 +14,4 @@
 .glide/
 
 .idea/
-MockRemoteService
+deploy.env

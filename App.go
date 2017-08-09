@@ -5,18 +5,21 @@ import (
 	"github.com/paduvi/MockRemoteService/middlewares"
 	"github.com/paduvi/MockRemoteService/controllers"
 	"github.com/joho/godotenv"
+	_ "github.com/joho/godotenv/autoload"
 	"os"
 )
 
+func init()  {
+	_ = godotenv.Load("deploy.env")
+}
+
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		panic("Error loading .env file")
-	}
 	app := iris.New()
 
 	app.OnErrorCode(iris.StatusInternalServerError, middlewares.ErrorHandler)
-	//app.Use(middlewares.Logger) // uncomment to see log
+	if os.Getenv("LogLevel") == "DEBUG" {
+		app.Use(middlewares.Logger)
+	}
 
 	controllers.WithRouter(app)
 
